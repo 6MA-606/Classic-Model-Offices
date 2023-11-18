@@ -2,7 +2,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Office</title>
+    <title>Classic Model Offices</title>
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/921967767253569557/1175459262529536171/building-fill.svg?ex=656b4ebf&is=6558d9bf&hm=64a0a5ce4289bc224a699bf7946c32ece435e8e324e285317e776ba69c7f53f2&" />
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.3.1/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -10,7 +11,13 @@
     <div class="container mx-auto px-4">
         <div class="text-4xl mt-4 cursor-pointer" onclick="window.location = './office-list'">Classic Model Offices ::</div>
         <div class="divider"></div>
-        <button class="btn btn-sm btn-neutral" onclick="window.location = './office-list'"><- back</button>
+        <button class="btn btn-sm" onclick="window.location = './office-list'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-backspace" viewBox="0 0 16 16">
+                <path d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5 0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39 8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z"></path>
+                <path d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-7.08z"></path>
+            </svg>
+            back
+        </button>
         <h1 class="text-2xl my-4">
             Edit office details
         </h1>
