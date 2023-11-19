@@ -20,7 +20,7 @@
         <div class="divider"></div>
         <div class="flex justify-between items-center mb-5">
             <button class="btn btn-sm" onclick="window.location = './office-list?add=true'">Add Office</button>
-            <form id="searchForm" class="flex items-center" method="get">
+            <form id="searchForm" class="flex items-center" action="office-list" method="get">
                 <button class="absolute translate-x-3" type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
@@ -70,15 +70,5 @@
             </div>
         </c:if>
     </div>
-    <script>
-        const searchForm = document.getElementById("searchForm")
-        const searchTermsInput = document.getElementsByName("searchTerms")[0]
-
-        searchForm.addEventListener('submit', (e) => {
-            if (searchTermsInput.value === '') {
-                e.preventDefault()
-            }
-        })
-    </script>
 </body>
 </html>

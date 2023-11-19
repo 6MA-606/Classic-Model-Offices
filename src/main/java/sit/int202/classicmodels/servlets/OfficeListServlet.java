@@ -9,7 +9,6 @@ import sit.int202.classicmodels.entities.Office;
 import sit.int202.classicmodels.repositories.OfficeRepository;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 
 @WebServlet(name = "OfficeListServlet", value = "/office-list")
@@ -29,21 +28,25 @@ public class OfficeListServlet extends HttpServlet {
         }
         if (officeCode != null) req.setAttribute("selectedOffice", officeRepository.find(officeCode));
         if (searchTerms != null) {
+            if (searchTerms.isEmpty()) {
+                resp.sendRedirect("./office-list");
+                return;
+            }
             req.setAttribute("searchTerms", searchTerms);
-            req.setAttribute("offices",  officeRepository.findByCityOrCountry(searchTerms));
-            getServletContext().getRequestDispatcher("/search-office.jsp").forward(req, resp);
+            req.setAttribute("offices", officeRepository.findByCityOrCountry(searchTerms));
+            req.getRequestDispatcher("/search-office.jsp").forward(req, resp);
         }
         if (edit != null) {
-            getServletContext().getRequestDispatcher("/edit-office.jsp").forward(req, resp);
+            req.getRequestDispatcher("/edit-office.jsp").forward(req, resp);
         }
         if (add != null) {
             int newOfficeCode = Integer.parseInt(officeRepository.findLatest().getOfficeCode()) + 1;
             req.setAttribute("newOfficeCode", newOfficeCode);
-            getServletContext().getRequestDispatcher("/add-office.jsp").forward(req, resp);
+            req.getRequestDispatcher("/add-office.jsp").forward(req, resp);
         }
 
         req.setAttribute("offices", officeRepository.findAll());
-        getServletContext().getRequestDispatcher("/office-list.jsp").forward(req, resp);
+        req.getRequestDispatcher("/office-list.jsp").forward(req, resp);
     }
 
     @Override
